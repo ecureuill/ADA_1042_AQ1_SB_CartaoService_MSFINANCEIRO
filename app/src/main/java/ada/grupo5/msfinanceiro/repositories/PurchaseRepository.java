@@ -1,5 +1,9 @@
 package ada.grupo5.msfinanceiro.repositories;
 
-public class PurchaseRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import ada.grupo5.msfinanceiro.entities.Purchase;
+
+public interface PurchaseRepository extends JpaRepository<Purchase, Long> {
     
 }
