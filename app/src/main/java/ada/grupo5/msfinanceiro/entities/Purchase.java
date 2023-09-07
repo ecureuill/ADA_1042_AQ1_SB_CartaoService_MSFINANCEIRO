@@ -28,7 +28,7 @@ public class Purchase {
     @JoinColumn(name = "card_number", referencedColumnName = "card_number", insertable = false, updatable = false)
     private Card card;
 
-    private PurchaseStatus status;  // Assuming you have an Enum named PurchaseStatus
+    private PurchaseStatus status;
     private Boolean processed = false;
     private String store;
     private LocalDateTime created_at;
