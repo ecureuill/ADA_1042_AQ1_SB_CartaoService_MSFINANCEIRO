@@ -2,6 +2,7 @@ package ada.grupo5.msfinanceiro.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,8 +17,8 @@ import lombok.Data;
 @Entity
 public class Bill {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private LocalDate due_date;
     private LocalDate processing_date;
