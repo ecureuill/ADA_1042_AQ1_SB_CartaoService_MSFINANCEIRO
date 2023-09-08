@@ -119,5 +119,17 @@ public class BillService {
         return billRepository.findByHolderId(holderId);
     }
 
+    public void payBill(UUID billId, Double amount) {
+        Optional<Bill> optionalBill = billRepository.findById(billId);
+        if (optionalBill.isPresent()) {
+            Bill bill = optionalBill.get();
+            bill.pay(amount);
+            billRepository.save(bill);
+        } else {
+            throw new RuntimeException("Fatura não encontrada");
+        }
+    }
+
+
     
 }

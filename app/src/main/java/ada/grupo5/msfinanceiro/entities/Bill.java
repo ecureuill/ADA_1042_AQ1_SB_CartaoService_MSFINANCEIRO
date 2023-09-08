@@ -37,5 +37,9 @@ public class Bill {
     protected void onCreate() {
         this.created_at = LocalDateTime.now();
     }
+
+    public void pay(Double amount) {
+        this.paid_value += amount;
+    }
 }
 
