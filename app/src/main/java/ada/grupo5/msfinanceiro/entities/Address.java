@@ -1,10 +1,12 @@
 package ada.grupo5.msfinanceiro.entities;
 
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @Embeddable
+@AllArgsConstructor
 public class Address {
     private String zip_code;
     private String street;
