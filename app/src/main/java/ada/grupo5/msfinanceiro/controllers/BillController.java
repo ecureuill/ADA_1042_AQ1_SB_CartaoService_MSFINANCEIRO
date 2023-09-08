@@ -1,11 +1,8 @@
 package ada.grupo5.msfinanceiro.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +23,7 @@ public class BillController {
         return billService.findAll();
     }
 
-/*     @GetMapping("/holder/{holderId}")
+    @GetMapping("/holder/{holderId}")
     public List<Bill> getBillsByHolderId(@PathVariable Long holderId) {
         return billService.getBillsByHolderId(holderId);
     }
@@ -34,5 +31,5 @@ public class BillController {
     @GetMapping("/customer/{customerId}")
     public List<Bill> getBillsByCustomerId(@PathVariable Long customerId) {
         return billService.getBillsByCustomerId(customerId);
-    } */
+    }
 }
