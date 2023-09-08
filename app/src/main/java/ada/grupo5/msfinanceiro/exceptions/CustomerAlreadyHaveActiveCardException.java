@@ -1,4 +1,4 @@
-package ada.grupo5.msfinanceiro.services;
+package ada.grupo5.msfinanceiro.exceptions;
 
 public class CustomerAlreadyHaveActiveCardException extends Exception{
     

@@ -1,4 +1,4 @@
-package ada.grupo5.msfinanceiro.controllers;
+package ada.grupo5.msfinanceiro.dtos;
 
 public record CardValidationResponse(
     boolean valid

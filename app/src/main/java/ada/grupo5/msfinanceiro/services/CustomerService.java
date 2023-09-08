@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import ada.grupo5.msfinanceiro.dtos.CreateCardDependent;
+import ada.grupo5.msfinanceiro.dtos.CreateCardUser;
 import ada.grupo5.msfinanceiro.entities.Address;
 import ada.grupo5.msfinanceiro.entities.Customer;
 import ada.grupo5.msfinanceiro.repositories.CustomerRepository;

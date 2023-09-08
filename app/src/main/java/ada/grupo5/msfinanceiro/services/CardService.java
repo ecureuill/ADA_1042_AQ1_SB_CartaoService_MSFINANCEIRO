@@ -8,8 +8,14 @@ import org.springframework.stereotype.Service;
 
 import ada.grupo5.msfinanceiro.dtos.CardDTO;
 import ada.grupo5.msfinanceiro.dtos.CardType;
+import ada.grupo5.msfinanceiro.dtos.CreateCardDependent;
+import ada.grupo5.msfinanceiro.dtos.CreateCardUser;
 import ada.grupo5.msfinanceiro.entities.Card;
 import ada.grupo5.msfinanceiro.entities.Customer;
+import ada.grupo5.msfinanceiro.exceptions.CardNotFoundException;
+import ada.grupo5.msfinanceiro.exceptions.CustomerAlreadyHaveActiveCardException;
+import ada.grupo5.msfinanceiro.exceptions.CustomerHasNoActiveCardException;
+import ada.grupo5.msfinanceiro.exceptions.CustomerNotFoundException;
 import ada.grupo5.msfinanceiro.repositories.CardRepository;
 import lombok.RequiredArgsConstructor;
 

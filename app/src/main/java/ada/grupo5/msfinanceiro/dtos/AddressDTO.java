@@ -1,4 +1,4 @@
-package ada.grupo5.msfinanceiro.services;
+package ada.grupo5.msfinanceiro.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 

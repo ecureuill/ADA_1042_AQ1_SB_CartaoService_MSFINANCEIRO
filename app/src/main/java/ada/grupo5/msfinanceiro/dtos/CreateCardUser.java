@@ -1,8 +1,7 @@
-package ada.grupo5.msfinanceiro.services;
+package ada.grupo5.msfinanceiro.dtos;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import ada.grupo5.msfinanceiro.dtos.CardType;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

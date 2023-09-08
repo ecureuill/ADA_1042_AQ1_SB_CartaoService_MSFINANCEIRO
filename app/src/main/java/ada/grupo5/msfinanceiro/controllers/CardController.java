@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ada.grupo5.msfinanceiro.dtos.CardDTO;
 import ada.grupo5.msfinanceiro.dtos.CardResponse;
+import ada.grupo5.msfinanceiro.dtos.CardValidationResponse;
+import ada.grupo5.msfinanceiro.dtos.CreateCardDependent;
+import ada.grupo5.msfinanceiro.dtos.CreateCardUser;
 import ada.grupo5.msfinanceiro.entities.Card;
-import ada.grupo5.msfinanceiro.services.CardNotFoundException;
+import ada.grupo5.msfinanceiro.exceptions.CardNotFoundException;
+import ada.grupo5.msfinanceiro.exceptions.CustomerAlreadyHaveActiveCardException;
+import ada.grupo5.msfinanceiro.exceptions.CustomerHasNoActiveCardException;
+import ada.grupo5.msfinanceiro.exceptions.CustomerNotFoundException;
 import ada.grupo5.msfinanceiro.services.CardService;
-import ada.grupo5.msfinanceiro.services.CreateCardDependent;
-import ada.grupo5.msfinanceiro.services.CreateCardUser;
-import ada.grupo5.msfinanceiro.services.CustomerAlreadyHaveActiveCardException;
-import ada.grupo5.msfinanceiro.services.CustomerHasNoActiveCardException;
-import ada.grupo5.msfinanceiro.services.CustomerNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
