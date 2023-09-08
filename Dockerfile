@@ -5,18 +5,18 @@ FROM maven:3.8.4-openjdk-17-slim as build
 WORKDIR /app
 
 # Copy maven executable to the image
-COPY mvnw .
-COPY .mvn .mvn
+COPY /app/mvnw .
+COPY /app/.mvn .mvn
 
 # Copy the pom.xml file
-COPY pom.xml .
+COPY /app/pom.xml .
 
 # Build all the dependencies in preparation to go offline. 
 # This is a separate step so the dependencies will be cached unless changes to pom.xml are made.
 RUN mvn dependency:go-offline -B
 
 # Copy the project source
-COPY src src
+COPY /app/src src
 
 # Package the application
 RUN mvn package -DskipTests
