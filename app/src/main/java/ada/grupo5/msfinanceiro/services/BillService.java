@@ -65,6 +65,11 @@ public class BillService {
         
     }
 
+    public List<Bill> findAll() {
+        return billRepository.findAll();
+    }
+
+
     public Optional<Bill> getLastBillForCard(String card_number) {
         return billRepository.getLastBillFromCard(card_number);
     }
@@ -105,5 +110,14 @@ public class BillService {
 
     return billConverter.convertToBillDTO(bill);
 }
+
+    public List<Bill> getBillsByCustomerId(Long customerId) {
+        return billRepository.findByCustomerId(customerId);
+    }
+
+    public List<Bill> getBillsByHolderId(Long holderId) {
+        return billRepository.findByHolderId(holderId);
+    }
+
     
 }
