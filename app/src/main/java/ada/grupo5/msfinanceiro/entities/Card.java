@@ -7,6 +7,7 @@ import ada.grupo5.msfinanceiro.dtos.CardType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Transient;
@@ -22,6 +23,7 @@ public class Card {
     private String card_number;
     
     @ManyToOne
+    @JoinColumn(name = "holder_id")
     private Customer customer;
     
     private LocalDate expiration_date;

@@ -12,9 +12,11 @@ import ada.grupo5.msfinanceiro.entities.Bill;
 import ada.grupo5.msfinanceiro.entities.Card;
 
 public interface BillRepository extends JpaRepository<Bill, UUID>{
-    @Query("SELECT b FROM Bill b WHERE b.card.card_number = :card_number ORDER BY b.createdAt DESC")
+    @Query("SELECT b FROM Bill b WHERE b.card.card_number = :card_number ORDER BY b.created_at DESC")
     Optional<Bill> getLastBillFromCard(String card_number);
-    List<Bill> findByCardCardNumber(String card_number);
+    @Query("SELECT b FROM Bill b WHERE b.card.card_number = :cardNumber")
+    List<Bill> findByCardCardNumber(@Param("cardNumber") String cardNumber);
+
     List<Bill> findByCardIn(List<Card> cards);
     List<Bill> findByCard(Card card);
     

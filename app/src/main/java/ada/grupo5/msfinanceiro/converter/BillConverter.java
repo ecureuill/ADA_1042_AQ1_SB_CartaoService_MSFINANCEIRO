@@ -3,12 +3,15 @@ package ada.grupo5.msfinanceiro.converter;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
 import ada.grupo5.msfinanceiro.dtos.BillDTO;
 import ada.grupo5.msfinanceiro.dtos.PurchaseDTO;
 import ada.grupo5.msfinanceiro.entities.Bill;
 import ada.grupo5.msfinanceiro.entities.Purchase;
 import ada.grupo5.msfinanceiro.repositories.PurchaseRepository;
 
+@Component
 public class BillConverter {
     
     private PurchaseRepository purchaseRepository;

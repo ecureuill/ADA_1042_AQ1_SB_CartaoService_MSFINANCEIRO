@@ -69,9 +69,9 @@ public class BillService {
         return billRepository.getLastBillFromCard(card_number);
     }
 
-    public List<BillDTO> findAllBillsForHolder(String holder_id) {
+    public List<BillDTO> findAllBillsForHolder(Long holder_id) {
 
-        List<Card> cards = cardRepository.findByHolderId(holder_id);
+        List<Card> cards = cardRepository.findByCustomerId(holder_id);
         
         List<Bill> bills = billRepository.findByCardIn(cards);
         
