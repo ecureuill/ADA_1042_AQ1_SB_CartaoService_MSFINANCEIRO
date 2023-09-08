@@ -58,7 +58,7 @@ public class CardController {
 
     }
 
-    @GetMapping("/validate")
+    @PostMapping("/validate")
     public ResponseEntity<CardValidationResponse> getCard(@RequestBody @Valid CardDTO dto) throws CardNotFoundException {
         return ResponseEntity.ok().body(new CardValidationResponse(cardService.verify(dto)));
     }

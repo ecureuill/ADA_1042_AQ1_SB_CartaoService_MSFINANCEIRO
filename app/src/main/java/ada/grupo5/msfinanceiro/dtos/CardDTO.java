@@ -3,6 +3,7 @@ package ada.grupo5.msfinanceiro.dtos;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record CardDTO(
     @NotBlank
@@ -11,7 +12,7 @@ public record CardDTO(
     String accountOwner,
     @NotBlank
     String cvv,
-    @NotBlank
+    @NotNull
     LocalDate expireCardDate
 ) {
     
