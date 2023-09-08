@@ -15,6 +15,6 @@ public class BillDTO {
     private LocalDate due_date;
     private LocalDate processed_date;
 
-    private List<PurchaseDTO> purchase_summary;
+    private List<CustomPurchaseDTO> purchase_summary;
     
 }

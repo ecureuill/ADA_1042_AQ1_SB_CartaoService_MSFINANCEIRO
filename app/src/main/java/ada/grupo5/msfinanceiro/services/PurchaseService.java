@@ -1,8 +1,5 @@
 package ada.grupo5.msfinanceiro.services;
 
-import java.time.LocalDate;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ada.grupo5.msfinanceiro.dtos.PurchaseDTO;
@@ -31,15 +28,14 @@ public class PurchaseService {
 
     public Purchase convertToEntity(PurchaseDTO dto) throws Exception {
         Purchase purchase = new Purchase();
-        purchase.setDate(dto.purchaseDate().toLocalDate());
-        purchase.setValue(new Double(dto.price().toString()));
+        purchase.setDate(dto.purchaseDate()/* .toLocalDate() */);
+        purchase.setValue(Double.valueOf(dto.price().toString()));
         purchase.setStore(dto.store());
 
-        Card card = cardRepository.findByCard_number(dto.cardNumber()).orElseThrow();
+        Card card = cardRepository.findByCardNumber(dto.cardNumber()).orElseThrow();
         purchase.setCard(card);
 
-        purchase.setCreated_at(LocalDateTime.now());
-        purchase.setDate(LocalDate.now());
+        purchase.setDate(LocalDateTime.now());
         purchase.setProcessed(true);
         purchase.setStatus(PurchaseStatus.CONFIRMED);
 

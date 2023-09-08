@@ -11,7 +11,6 @@ import ada.grupo5.msfinanceiro.dtos.CardType;
 import ada.grupo5.msfinanceiro.entities.Card;
 import ada.grupo5.msfinanceiro.entities.Customer;
 import ada.grupo5.msfinanceiro.repositories.CardRepository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Service
