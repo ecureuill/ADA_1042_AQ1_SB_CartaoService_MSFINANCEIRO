@@ -106,7 +106,7 @@ public class CardService {
     }
 
     private Optional<Card> getCustomerActiveCard(Long id) {
-        return cardRepository.findByIdAndActiveTrue(id);
+        return cardRepository.findByCustomerIdAndActive(id, true);
     }
 
     private String generateCardNumber(){
@@ -125,7 +125,7 @@ public class CardService {
     }
 
     public void deleteCard(String cardNumber) throws CardNotFoundException {
-        Optional<Card> card = cardRepository.findByCard_number(cardNumber);
+        Optional<Card> card = cardRepository.findByCardNumber(cardNumber);
         if(card.isPresent())
         {
             card.get().setActive(false);
@@ -139,7 +139,7 @@ public class CardService {
     }
 
     public Boolean verify(CardDTO dto) {
-        Optional<Card> existCard = cardRepository.findByCard_number(dto.cardNumber());
+        Optional<Card> existCard = cardRepository.findByCardNumber(dto.cardNumber());
         if(existCard.isEmpty())
             return false;
         
