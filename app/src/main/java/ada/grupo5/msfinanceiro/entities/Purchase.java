@@ -1,6 +1,5 @@
 package ada.grupo5.msfinanceiro.entities;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -21,7 +20,7 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     
-    private LocalDate date;
+    private LocalDateTime date;
     private Double value;
 
     @ManyToOne
@@ -31,11 +30,10 @@ public class Purchase {
     private PurchaseStatus status;
     private Boolean processed = false;
     private String store;
-    private LocalDateTime created_at;
     
     @PrePersist
     protected void onCreate() {
-        this.created_at = LocalDateTime.now();
+        this.date = LocalDateTime.now();
     }
 
 }

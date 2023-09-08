@@ -7,9 +7,9 @@ import ada.grupo5.msfinanceiro.dtos.CardType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
-import jakarta.persistence.Transient;
 import lombok.Data;
 
 @Data
@@ -22,7 +22,12 @@ public class Card {
     private String card_number;
     
     @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "holder_id")
+    private Customer holder;
     
     private LocalDate expiration_date;
     private int bill_due_day;
@@ -36,10 +41,5 @@ public class Card {
     @PrePersist
     protected void onCreate() {
         this.created_at = LocalDateTime.now();
-    }
-
-    @Transient
-    public String getCustomerName() {
-        return customer != null ? customer.getName() : null;
     }
 }
