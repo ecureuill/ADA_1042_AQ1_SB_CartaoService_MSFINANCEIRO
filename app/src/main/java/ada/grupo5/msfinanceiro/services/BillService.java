@@ -130,6 +130,13 @@ public class BillService {
         }
     }
 
+    public List<Bill> findBillsByCustomerCpf(String cpf) {
+        return billRepository.findByCustomerCpf(cpf);
+    }
+
+    public List<Bill> findBillsByHolderCpf(String cpf) {
+        return billRepository.findByHolderCpf(cpf);
+    }
 
     
 }

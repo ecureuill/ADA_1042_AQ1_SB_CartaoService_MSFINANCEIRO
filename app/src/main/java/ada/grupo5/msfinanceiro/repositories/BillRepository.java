@@ -28,12 +28,16 @@ public interface BillRepository extends JpaRepository<Bill, UUID>{
 
     Optional<Bill> findById(UUID id);
 
-    List<Bill> findAll();
-
     @Query("SELECT b FROM Bill b WHERE b.card.holder.id = :holderId")
     List<Bill> findByHolderId(@Param("holderId") Long holderId);
 
     @Query("SELECT b FROM Bill b WHERE b.card.customer.id = :customerId")
     List<Bill> findByCustomerId(@Param("customerId") Long customerId);
+
+    @Query("SELECT b FROM Bill b JOIN b.card c WHERE c.customer.cpf = :cpf")
+    List<Bill> findByCustomerCpf(@Param("cpf") String cpf);
+
+    @Query("SELECT b FROM Bill b JOIN b.card c WHERE c.holder.cpf = :cpf")
+    List<Bill> findByHolderCpf(@Param("cpf") String cpf);
 
 }

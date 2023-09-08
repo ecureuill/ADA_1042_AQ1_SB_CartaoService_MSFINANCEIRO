@@ -30,14 +30,16 @@ public class BillController {
         return billService.findAll();
     }
 
-    @GetMapping("/holder/{holderId}")
-    public List<Bill> getBillsByHolderId(@PathVariable Long holderId) {
-        return billService.getBillsByHolderId(holderId);
+    @GetMapping("/customer/{cpf}")
+    public ResponseEntity<List<Bill>> getBillsByCustomerCpf(@PathVariable String cpf) {
+        List<Bill> bills = billService.findBillsByCustomerCpf(cpf);
+        return ResponseEntity.ok(bills);
     }
 
-    @GetMapping("/customer/{customerId}")
-    public List<Bill> getBillsByCustomerId(@PathVariable Long customerId) {
-        return billService.getBillsByCustomerId(customerId);
+    @GetMapping("/holder/{cpf}")
+    public ResponseEntity<List<Bill>> getBillsByHolderCpf(@PathVariable String cpf) {
+        List<Bill> bills = billService.findBillsByHolderCpf(cpf);
+        return ResponseEntity.ok(bills);
     }
 
     @PostMapping("/{billId}/pay")
