@@ -20,6 +20,7 @@ import ada.grupo5.msfinanceiro.exceptions.CustomerAlreadyHaveActiveCardException
 import ada.grupo5.msfinanceiro.exceptions.CustomerHasNoActiveCardException;
 import ada.grupo5.msfinanceiro.exceptions.CustomerNotFoundException;
 import ada.grupo5.msfinanceiro.services.CardService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -30,18 +31,26 @@ public class CardController {
 
     private final CardService cardService;
 
+    @GetMapping
+    public ResponseEntity<String> ping(){
+        return ResponseEntity.ok().body("up");
+    }
+
     @PostMapping
+    @Transactional
     public ResponseEntity<CardResponse> createMainCard(@RequestBody @Valid CreateCardUser dto) throws CustomerAlreadyHaveActiveCardException{
         Card card = cardService.createMainCard(dto);
         return ResponseEntity.ok().body(new CardResponse(card));
     }
     
     @PostMapping("/additional")
+    @Transactional
     public ResponseEntity<CardResponse> createAdditionalCard(@RequestBody @Valid CreateCardDependent dto) throws CustomerAlreadyHaveActiveCardException, CustomerNotFoundException, CustomerHasNoActiveCardException{
         Card card = cardService.createAdditionalCard(dto);
         return ResponseEntity.ok().body(new CardResponse(card));
     }
 
+    @Transactional
     @DeleteMapping("/{cardNumber}")
     public ResponseEntity<Void> deleteCard(@PathVariable String cardNumber) throws CardNotFoundException {
         cardService.deleteCard(cardNumber);
